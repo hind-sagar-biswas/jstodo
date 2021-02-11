@@ -1,6 +1,10 @@
 # jstodo
 A to-do app in JavaScript and Bootstrap4
 
+## Demo
+
+Live demo @ [https://hind-sagar-biswas.github.io/jstodo/](https://hind-sagar-biswas.github.io/jstodo/)
+
 ## Features
 
 1. Add Task

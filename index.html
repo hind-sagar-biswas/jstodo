@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-		<title>To-do Lists</title>
+		<title>To-do App</title>
 		<!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
@@ -12,10 +12,13 @@
 		<div class="mt-2 mb-2">
 			<form onsubmit="return addTask()" name="taskAdder" class="mt-2 table-bordered" style="padding:10px">
 					
-				<div class="form-group">
-				 <input id="work" type="text" name="work" class="form-control" required>
-				</div>
-				<button type="submit" class="btn btn-primary btn-block" id="add" name="add">ADD</button>
+				<div class="input-group">
+  <input id="work" type="text" name="work" class="form-control" placeholder="Add Task">
+  <div class="input-group-append" required>
+    <button class="btn btn-primary" type="submit" id="add" name="add"><i class="fas fa-plus"></i></button> 
+    <button class="btn btn-danger" type="reset"><i class="fas fa-trash"></i></button> 
+  </div>
+</div>
 			</form>
 		</div>
 		<div>

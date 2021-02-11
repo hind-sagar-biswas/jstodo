@@ -35,9 +35,9 @@ function listTask() {
 		for(x of tasks){
 				var d = x.split(':::');
 				if(d[d.length -1] == 'done') {
-						taskString += '<li class="list-group-item del border-success"><span><del>' + d[0] + '</del></span><button class="btn btn-warning" onclick="uncheckTask(' + i + ')"><i class="fas fa-check"></i></button><button class="btn btn-danger" onclick="removeTask(' + i + ')"><i class="fas fa-trash"></i></button></li>';
+						taskString += '<li class="list-group-item del border-success"><span><del>' + d[0] + '</del></span><div class="btn-group"><button class="btn btn-success" onclick="uncheckTask(' + i + ')"><i class="fas fa-check"></i></button><button class="btn btn-danger" onclick="removeTask(' + i + ')"><i class="fas fa-trash"></i></button></div></li>';
 				}else {
-						taskString += '<li class="list-group-item"><span>' + x + '</span><button class="btn btn-warning" onclick="checkTask(' + i + ')"><i class="fas fa-check"></i></button><button class="btn btn-danger" onclick="removeTask(' + i + ')"><i class="fas fa-trash"></i></button></li>';
+						taskString += '<li class="list-group-item"><span>' + x + '</span><div class="btn-group"><button class="btn btn-success" onclick="checkTask(' + i + ')"><i class="fas fa-check"></i></button><button class="btn btn-danger" onclick="removeTask(' + i + ')"><i class="fas fa-trash"></i></button></div></li>';
 				}
 				i++
 		}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+		<title>To-do Lists</title>
+		<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<section class="container">
+		<div class="mt-2 mb-2">
+			<form onsubmit="return addTask()" name="taskAdder" class="mt-2 table-bordered" style="padding:10px">
+					
+				<div class="form-group">
+				 <input id="work" type="text" name="work" class="form-control" required>
+				</div>
+				<button type="submit" class="btn btn-primary btn-block" id="add" name="add">ADD</button>
+			</form>
+		</div>
+		<div>
+				<center class="mb-2 mt-2">
+							<h5>To-do List</h5>
+					</center>
+				<ul class="list-group" id="tasks">
+						
+				</ul>
+		</div>
+	</section>
+	 <!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+		<script src="main.js"></script>
+</body>
+</html>

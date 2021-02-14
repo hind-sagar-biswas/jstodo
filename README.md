@@ -15,6 +15,8 @@ Live demo @ [https://hind-sagar-biswas.github.io/jstodo/](https://hind-sagar-bis
 
 1. Delete Task
 
+1. Progress Saving (***i.e.*** The Tasks won't get deleted after the window or tab closes.)
+
 ## Languages
 
 1. HTML5

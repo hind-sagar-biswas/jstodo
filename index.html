@@ -1,55 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Required Meta Tags -->	
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="language" content="english">
-    <meta name="author" content=”Hind Sagar Biswas”>
-    <meta name="designer" content=”Hind Sagar Biswas”>
-    <meta name="publisher" content=”Hind Sagar Biswas”>
-    
-    <title>JavaScript To-do App</title>
-
-    <meta name="description" content="JavaScript To-do Application using Vanilla JavaScript and Bootstrap4">
-    <meta name="keywords" content="JavaScript, To-do Application, Vanilla JavaScript project">
-    
-		<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
-<link rel="stylesheet" href="style.css">
+		<title>StopJS - JavaScript Stopwatch</title>
+		<link rel="stylesheet" href="style.css">
 </head>
 <body>
-	<section class="container">
-		<div class="mt-2 mb-2">
-			<form onsubmit="return addTask()" name="taskAdder" class="mt-2 table-bordered" style="padding:10px">
-					
-				<div class="input-group">
-  <input id="work" type="text" name="work" class="form-control" placeholder="Add Task">
-  <div class="input-group-append" required>
-    <button class="btn btn-primary" type="submit" id="add" name="add"><i class="fas fa-plus"></i></button> 
-    <button class="btn btn-danger" type="reset"><i class="fas fa-trash"></i></button> 
-  </div>
-</div>
-			</form>
-		</div>
-		<div>
-				<center class="mb-2 mt-2">
-							<h5>To-do List</h5>
-					</center>
-				<ul class="list-group" id="tasks">
-						
-				</ul>
-		</div>
-	</section>
-	 <!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-<!-- Popper JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+		<section>
+				<center>
+			<h1>StopJS</h1>
+			<h3>JavaScript Stopwatch</h3>
+		 </center>
+				<div class="timerScreen" onclick="screenTouch()">
+						<h1 id="timer">00<span>:</span>00<span>:</span>00<span>:</span>00</h1>
+			  </div>
+			  
+			  <div class="buttons">
+			  		<button id="start" onclick="startTimer()">START</button>
+			  		<button id="stop" onclick="stopTimer()">STOP</button>
+			  		<button id="reset" onclick="resetTimer()">RESET</button>
+			  </div>
+		</section>
+		
 		<script src="main.js"></script>
 </body>
 </html>

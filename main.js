@@ -26,10 +26,12 @@ const categoryInput = categoryAdder["categoryInput"];
 function addNewCategory() {
 	if(categories.includes(categoryInput.value)) {
 		alertSystem("danger", `<strong>${categoryInput.value}</strong> already exists!`);
+		categoryInput.value = "";
 		return false;
 	}
 		categories.push(categoryInput.value);
 	updateCategories();
+	alertSystem("success", `<strong>${categoryInput.value}</strong> category added!`);
 	categoryInput.value = "";
 	return false;
 }
@@ -153,21 +155,28 @@ function removeCategory(categoryIndex) {
 			removeTask(i);
 		} 
 	}
-	categories.splice(categoryIndex, 1);
+	alertSystem("warning", `<strong>${categories[categoryIndex]}</strong> removed!`);
+		categories.splice(categoryIndex, 1);
 	updateCategories();
 }
 
 function removeTask(taskIndex) {
+	alertSystem("warning", `<strong>Task no.${taskIndex + 1}</strong> of <strong>${taskList[taskIndex][1]}</strong>
+	removed!`);
 	taskList.splice(taskIndex, 1);
 	updateTasks();
 }
 
 function checkTask(taskIndex) {
+	alertSystem("success", `<strong>Task no.${taskIndex + 1}</strong> of <strong>${taskList[taskIndex][1]}</strong>
+	checked!`);
 	taskList[taskIndex][2] = "done";
 	updateTasks();
 }
 
 function uncheckTask(taskIndex) {
+	alertSystem("warning", `<strong>Task no.${taskIndex + 1}</strong> of <strong>${taskList[taskIndex][1]}</strong>
+	unchecked!`);
 	taskList[taskIndex][2] = "undone";
 	updateTasks();
 }
@@ -185,12 +194,14 @@ function getStorageData(data) {
 }
 
 function alertSystem(type, message) {
-	alertBox.innerHTML += `<div class="alert alert-${type} alert-dismissible fade show">
+	alertBox.innerHTML = `<div class="alert alert-${type} alert-dismissible fade show">
   <button type="button" class="close" data-dismiss="alert">&times;</button>
   ${message}
 </div>`;
 }
 
 
-updateCategories();
-updateTasks();
+window.addEventListener("load", () => {
+	updateCategories();
+	updateTasks();
+})

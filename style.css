@@ -1,12 +1,12 @@
 li{
-				display: flex !important;
-			  justify-content: space-between !important;
-			  align-items: center;
-		}
-		li span{
-				flex:1;
-		}
-		.del{
-				background: #7ea97e;
-				opacity: 0.7;
-		}
+	display: flex !important;
+	justify-content: space-between !important;
+	align-items: center;
+}
+li span{
+	flex:1;
+}
+.done{
+	background: #7ea97e;
+	opacity: 0.7;
+}

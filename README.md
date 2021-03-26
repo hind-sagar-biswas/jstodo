@@ -9,6 +9,8 @@ Live demo @ [https://hind-sagar-biswas.github.io/jstodo/](https://hind-sagar-bis
 
 1. Add Task
 
+1. Divide tasks based on categories
+
 1. Check Task
 
 1. Uncheck Task

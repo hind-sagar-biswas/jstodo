@@ -15,13 +15,42 @@ if(getStorageData(1) != null) {
 const container = document.getElementById("accordion");
 const alertBox = document.getElementById("alertBox");
 const categorySelectElement = document.getElementById("taskCategory");
+const exportContainer = document.getElementById("exportCodeContainer");
 
 const taskAdder = document.forms["taskAdder"];
 const categoryAdder = document.forms["categoryAdder"];
+const toDoImporter = document.forms["importForm"];
 
 const taskInput = taskAdder["task"];
 const taskCategory = taskAdder["taskCategory"];
 const categoryInput = categoryAdder["categoryInput"];
+const importInput = categoryAdder["importInput"];
+
+
+function importToDo() {
+	var importArray = JSON.parse(document.getElementById("importInput").value);
+	
+	importArray.forEach(data => {
+		if(!categories.includes(data[1])) {
+			categoryInput.value = data[1];
+			addNewCategory();
+		};
+		taskList.push(data);
+	});
+	
+	updateTasks();
+	alertSystem("success", "Task Imported!");
+	
+	return false;
+}
+
+function exportToDo() {
+	exportContainer.innerHTML = `<div class="form-group">
+									<label for="importInput">Import Code:</label>
+									<textarea class="form-control" id="exportCode"></textarea>
+								</div>`;
+	document.getElementById("exportCode").value = JSON.stringify(taskList);
+}
 
 function addNewCategory() {
 	if(categories.includes(categoryInput.value)) {

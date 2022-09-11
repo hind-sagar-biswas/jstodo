@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+		
 		<!-- Required Meta Tags -->	
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,13 +14,87 @@
 		
 		<meta name="description" content="JavaScript To-do Application using Vanilla JavaScript and Bootstrap4"> <meta name="keywords" content="JavaScript, To-do Application, Vanilla JavaScript project"> 
 		<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
-<link rel="stylesheet" href="style.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+		<link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+		<link rel="stylesheet" href="style.css">
+		
 </head>
 <body>
 	<section class="container">
 		<div class="mt-2 mb-2">
+			<div id="title">
+				<h3 align="center">
+					JS To-Do 
+					<button type="button" class="btn" data-toggle="modal" data-target="#settings"><i class="fas fa-cog"></i></button>
+				</h3>
+			</div>
+			
+			<div class="modal" id="settings">
+				<div class="modal-dialog">
+					<div class="modal-content">
+					
+						<div class="modal-header">
+							<h4 class="modal-title">Settings</h4>
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+						</div>
+						  
+						<div class="modal-body">
+							<ul class="list-group">
+								<a data-toggle="modal" data-target="#downloadBox">
+									<li class="list-group-item"><i class="fas fa-download"></i> Import</li>
+								</a>
+								<a data-toggle="modal" data-target="#uploadBox">
+									<li class="list-group-item"><i class="fas fa-upload"></i> Export</li>
+								</a>
+							</ul>
+							
+							<div class="modal" id="downloadBox">
+								<div class="modal-dialog">
+									<div class="modal-content">
+									
+										<div class="modal-header">
+											<h4 class="modal-title">Import</h4>
+											<button type="button" class="close" data-dismiss="modal">&times;</button>
+										</div>
+										
+										<div class="modal-body">
+											<div class="form-group">
+												<label for="importInput">Import Code:</label>
+												<textarea class="form-control" placeholder="Paste the import code here" id="importInput" name="importInput"></textarea>
+											 </div>
+											<button class="btn btn-success" onclick="importToDo()">Import</button>
+										</div>
+									 
+									</div>
+								</div>
+							</div>
+							<div class="modal" id="uploadBox">
+								<div class="modal-dialog">
+									<div class="modal-content">
+									
+										<div class="modal-header">
+											<h4 class="modal-title">Export</h4>
+											<button type="button"class="close" data-dismiss="modal">&times;</button>
+										</div>
+										
+										<div class="modal-body" id="exportCodeContainer">
+											<button type="button" class="btn btn-success"  onclick="exportToDo()">Get Export Code</button>
+										</div>
+
+									</div>
+								</div>
+							</div>
+						 
+						</div>
+						 
+						<div class="modal-footer">
+							<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+						</div>
+
+					</div>
+				</div>
+			</div>
+			
 			<div id="alertBox">
 				
 			</div>

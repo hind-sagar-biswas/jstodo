@@ -46,9 +46,9 @@ function importToDo() {
 
 function exportToDo() {
 	exportContainer.innerHTML = `<div class="form-group">
-									<label for="importInput">Import Code:</label>
-									<textarea class="form-control" id="exportCode"></textarea>
-								</div>`;
+					<label for="importInput">Import Code:</label>
+					<textarea class="form-control" id="exportCode"></textarea>
+				    </div>`;
 	document.getElementById("exportCode").value = JSON.stringify(taskList);
 }
 

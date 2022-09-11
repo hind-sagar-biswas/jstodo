@@ -46,9 +46,11 @@ function importToDo() {
 
 function exportToDo() {
 	exportContainer.innerHTML = `<div class="form-group">
-					<p class="badge badge-success">Export Code</p>
-					<code class="border">${JSON.stringify(taskList)}</code>
+					<label for="importInput">Export Code:</label>
+<hr>
+					<textarea class="form-control" id="exportCode"></textarea>
 				    </div>`;
+        document.getElementById("exportCode").value = JSON.stringify(taskList);
 }
 
 function addNewCategory() {

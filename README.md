@@ -19,6 +19,8 @@ Live demo @ [https://hind-sagar-biswas.github.io/jstodo/](https://hind-sagar-bis
 
 1. Progress Saving (***i.e.*** The Tasks won't get deleted after the window or tab closes.)
 
+1. Share Tasks (by import-export)
+
 ## Languages
 
 1. HTML5

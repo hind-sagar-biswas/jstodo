@@ -1,3 +1,7 @@
+body{
+  /*background: #dde5ed ;
+  background: lightgray;*/
+}
 li{
 	display: flex !important;
 	justify-content: space-between !important;
@@ -7,6 +11,14 @@ li span{
 	flex:1;
 }
 .done{
-	background: #7ea97e;
-	opacity: 0.7;
+	background: #99bd99;
+	opacity: 0.82;
+}
+#title h3{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#title h3 button{
+  margin-left: 10px;
 }

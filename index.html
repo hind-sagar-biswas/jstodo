@@ -1,144 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-		<!-- Required Meta Tags -->	
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="language" content="english"> 
-		<meta name="author" content="Hind Sagar Biswas"> 
-		<meta name="designer" content="Hind Sagar Biswas"> 
-		<meta name="publisher" content="Hind Sagar Biswas"> 
-		
-		<title>JavaScript To-do App</title> 
-		
-		<meta name="description" content="JavaScript To-do Application using Vanilla JavaScript and Bootstrap4"> <meta name="keywords" content="JavaScript, To-do Application, Vanilla JavaScript project"> 
-		<!-- Latest compiled and minified CSS -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-		<link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
-		<link rel="stylesheet" href="style.css">
-		
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do Application</title>
+
+    <meta name="description" content="JavaScript To-do Application using Vanilla JavaScript and Bootstrap5">
+    <meta name="keywords" content="JavaScript, To-do Application, Vanilla JavaScript project">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Latest compiled and minified CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+
+    <!-- Latest compiled JavaScript -->
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script defer src="./js/main.js"></script>
+
 </head>
+
 <body>
-	<section class="container">
-		<div class="mt-2 mb-2">
-			<div id="title">
-				<h3 align="center">
-					JS To-Do 
-					<button type="button" class="btn" data-toggle="modal" data-target="#settings"><i class="fas fa-cog"></i></button>
-				</h3>
-			</div>
-			
-			<div class="modal" id="settings">
-				<div class="modal-dialog">
-					<div class="modal-content">
-					
-						<div class="modal-header">
-							<h4 class="modal-title">Settings</h4>
-							<button type="button" class="close" data-dismiss="modal">&times;</button>
-						</div>
-						  
-						<div class="modal-body">
-							<ul class="list-group">
-								<a data-toggle="modal" data-target="#downloadBox">
-									<li class="list-group-item"><i class="fas fa-download"></i> Import</li>
-								</a>
-								<a data-toggle="modal" data-target="#uploadBox">
-									<li class="list-group-item"><i class="fas fa-upload"></i> Export</li>
-								</a>
-							</ul>
-							
-							<div class="modal" id="downloadBox">
-								<div class="modal-dialog">
-									<div class="modal-content">
-									
-										<div class="modal-header">
-											<h4 class="modal-title">Import</h4>
-											<button type="button" class="close" data-dismiss="modal">&times;</button>
-										</div>
-										
-										<div class="modal-body">
-											<div class="form-group">
-												<label for="importInput">Import Code:</label>
-												<textarea class="form-control" placeholder="Paste the import code here" id="importInput" name="importInput"></textarea>
-											 </div>
-											<button class="btn btn-success" onclick="importToDo()">Import</button>
-										</div>
-									 
-									</div>
-								</div>
-							</div>
-							<div class="modal" id="uploadBox">
-								<div class="modal-dialog">
-									<div class="modal-content">
-									
-										<div class="modal-header">
-											<h4 class="modal-title">Export</h4>
-											<button type="button"class="close" data-dismiss="modal">&times;</button>
-										</div>
-										
-										<div class="modal-body" id="exportCodeContainer">
-											<button type="button" class="btn btn-success"  onclick="exportToDo()">Get Export Code</button>
-										</div>
+    <div class="container-fluid h-100">
+        <div class="row h-100">
+            <nav class="col-md-3 navbar navbar-dark text-light bg-dark p-3 h-100">
+                <form method="get" id="CreateNoteForm" class="w-100">
+                    <h2>Create Note</h2>
+                    <div class="mb-3">
+                        <label for="create_new_note" class="form-label">Note name</label>
+                        <input type="text" class="form-control" name="create_new_note" id="create_new_note"
+                            aria-describedby="create_new_note_info" placeholder="">
+                        <small id="create_new_note_info" class="form-text"></small>
+                    </div>
+                    <button type="button" class="btn btn-primary">Create</button>
+                </form>
+                <form id="AddTaskForm" method="get" class="w-100">
+                    <h2>Add Task</h2>
+                    <small class="text-secondary">to <span class="current_note_name">Default Note</span></small>
+                    <div class="mb-3">
+                        <label for="add_task" class="form-label">Task</label>
+                        <input type="text" class="form-control" name="add_task" id="add_task"
+                            aria-describedby="add_task_info" placeholder="">
+                        <small id="add_task_info" class="form-text"></small>
+                    </div>
+                    <div class="mb-3">
+                        <label for="add_task_details" class="form-label">Task Details <em
+                                class="text-secondary">(optional)</em></label>
+                        <textarea class="form-control" name="add_task_details" id="add_task_details" maxlength="100"
+                            rows="3"></textarea>
+                    </div>
+                    <button type="button" class="btn btn-primary">Add Task</button>
+                </form>
+            </nav>
+            <div class="col-md-3 bg-grey text-light p-3 shadow">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card note-tile">
+                            <div class="card-body">
+                                <h3 class="card-title">Default</h3>
+                                <p class="card-text">Total tasks: 00</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card note-tile">
+                            <div class="card-body">
+                                <h3 class="card-title">Note #1</h3>
+                                <p class="card-text">Total tasks: 00</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="list-group p-3">
+                    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start"
+                        aria-current="true">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h5 class="mb-1">Heading</h5>
+                            <small class="text-muted">
+                                <button type="button" class="btn btn-success">
+                                    <i class="fa-solid fa-check"></i>
+                                </button>
+                                <button type="button" class="btn btn-danger">
+                                    <i class="fa-solid fa-xmark"></i>
+                                </button>
+                            </small>
+                        </div>
+                        <p class="mb-1">
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi accusantium rem
+                            ratione nobis tempore illum reprehenderit distinctio quis officia aliquam explicabo minima
+                            debitis voluptatibus a magni, delectus labore maiores, quos possimus nesciunt deserunt ea
+                            doloremque omnis consectetur. Vitae ut sint similique distinctio voluptates accusantium
+                            labore veniam, veritatis, recusandae consequatur nisi!
+                        </p>
+                        <small class="text-muted">created @ 01/10/2023</small>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h5 class="mb-1">Heading</h5>
+                            <small class="text-muted">
+                                <button type="button" class="btn btn-success">
+                                    <i class="fa-solid fa-check"></i>
+                                </button>
+                                <button type="button" class="btn btn-danger">
+                                    <i class="fa-solid fa-xmark"></i>
+                                </button>
+                            </small>
+                        </div>
+                        <p class="mb-1">
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi accusantium rem
+                            ratione nobis tempore illum reprehenderit distinctio quis officia aliquam explicabo minima
+                            debitis voluptatibus a magni, delectus labore maiores, quos possimus nesciunt deserunt ea
+                            doloremque omnis consectetur. Vitae ut sint similique distinctio voluptates accusantium
+                            labore veniam, veritatis, recusandae consequatur nisi!
+                        </p>
+                        <small class="text-muted">created @ 01/10/2023</small>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 
-									</div>
-								</div>
-							</div>
-						 
-						</div>
-						 
-						<div class="modal-footer">
-							<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-						</div>
-
-					</div>
-				</div>
-			</div>
-			
-			<div id="alertBox">
-				
-			</div>
-			<form onsubmit="return addNewCategory()" name="categoryAdder" class="mt-2 table-bordered" style="padding:10px">
-				<div class="input-group">
-					<input id="categoryInput" type="text" name="categoryInput" class="form-control" autocomplete="off" placeholder="Add New Category" required>
-					<div class="input-group-append">
-    				<button class="btn btn-primary" type="submit" id="addCategory" name="addCategory">
-    					<i class="fas fa-plus"></i>
-    				</button> 
-  				</div>
-				</div>
-			</form>
-			
-			<form onsubmit="return addNewTask()" name="taskAdder" class="mt-2 table-bordered" style="padding:10px">
-				<div class="input-group">
-  				<input id="task" type="text" name="task" class="form-control" autocomplete="off" placeholder="Task" required>
-  				<select name="taskCategory" id="taskCategory" class="custom-select">
-  					
-  				</select>
-  				<div class="input-group-append">
-    				<button class="btn btn-primary" type="submit" id="add" name="add">
-    					<i class="fas fa-plus"></i>
-    				</button> 
-  				</div>
-				</div>
-			</form>
-		</div>
-		<div>
-				<center class="mb-2 mt-2">
-							<h5>To-do List</h5>
-				</center>
-				<div id="accordion">
-					
-				</div>
-		</div>
-	</section>
-	 <!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-<!-- Popper JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-		<script src="main.js"></script>
 </body>
+
 </html>

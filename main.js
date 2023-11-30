@@ -1,8 +1,8 @@
 const spliter = "-s-";
 
 
-var categories = ["Default"];
-var taskList = [];
+let categories = ["Default"];
+let taskList = [];
 
 if(getStorageData(0) != null) {
 	categories = getStorageData(0).split(spliter);
@@ -28,7 +28,7 @@ const importInput = categoryAdder["importInput"];
 
 
 function importToDo() {
-	var importArray = JSON.parse(document.getElementById("importInput").value);
+	let importArray = JSON.parse(document.getElementById("importInput").value);
 	
 	importArray.forEach(data => {
 		if(!categories.includes(data[1])) {
@@ -66,7 +66,7 @@ function addNewCategory() {
 }
 
 function addNewTask() {
-	var taskArr = [
+	let taskArr = [
 		taskInput.value,
 		taskCategory.value,
 		"undone"
@@ -79,7 +79,7 @@ function addNewTask() {
 }
 
 function updateCategories() {
-	var categoryIterationIndex = 0;
+	let categoryIterationIndex = 0;
 	
 	container.innerHTML = "";
 	categorySelectElement.innerHTML = "";
@@ -95,23 +95,23 @@ function updateCategories() {
 
 function updateTasks() {
 	categories.forEach(category => {
-		var categoryListId = category.split(" ").join("-") + "-tasks";
+		let categoryListId = category.split(" ").join("-") + "-tasks";
 		document.getElementById(categoryListId).innerHTML = "";
 	});
 	setStorageData();
 	if(!taskList[0]) return;
 	
-	var taskIterationIndex = 0;
+	let taskIterationIndex = 0;
 	
 	taskList.forEach(task => {
-		var categoryTaskListId = task[1].split(" ").join("-") + "-tasks";
+		let categoryTaskListId = task[1].split(" ").join("-") + "-tasks";
 		document.getElementById(categoryTaskListId).innerHTML += getTaskList(task, taskIterationIndex);
 		taskIterationIndex++;
 	});
 }
 
 function getAccordion(category, categoryIndex) {
-	var categoryId = category.split(" ").join("-");
+	let categoryId = category.split(" ").join("-");
 	if(categoryId == "Default") {
 		return `<div class="card">
     				<div class="card-header">
@@ -146,7 +146,7 @@ function getAccordion(category, categoryIndex) {
 }
 
 function getTaskList(taskArray, taskIndex) {
-	var doneTemplate = `<li class="list-group-item done border-success">
+	let doneTemplate = `<li class="list-group-item done border-success">
 		<span>
 			<del>${taskArray[0]}</del>
 		</span>
@@ -159,7 +159,7 @@ function getTaskList(taskArray, taskIndex) {
 			</button>
 		</div>
 	</li>`;
-	var undoneTemplate = `<li class="list-group-item">
+	let undoneTemplate = `<li class="list-group-item">
 		<span>
 			${taskArray[0]}
 		</span>
@@ -179,7 +179,7 @@ function getTaskList(taskArray, taskIndex) {
 
 function removeCategory(categoryIndex) {
 	if(!confirm("Are you sure that you want to remove \"" + categories[categoryIndex] + "\" category along with all of it's tasks?")) return;
-	for(var i = 0; i < taskList.length; i++){
+	for(let i = 0; i < taskList.length; i++){
 		if(taskList[i][1] == categories[categoryIndex]) {
 			removeTask(i);
 		} 
@@ -211,8 +211,8 @@ function uncheckTask(taskIndex) {
 }
 
 function setStorageData() {
-	var encodedCategoryData = categories.join(spliter);
-	var encodedTaskData = JSON.stringify(taskList);
+	let encodedCategoryData = categories.join(spliter);
+	let encodedTaskData = JSON.stringify(taskList);
 	
 	localStorage.setItem('jsToDoCategoryData', encodedCategoryData);
 	localStorage.setItem('jsToDoTaskData', encodedTaskData);
